@@ -1,0 +1,16 @@
+services:
+  server-service:
+    build: 'server'
+    volumes:
+      - ./server:/home/node/app
+    ports:
+      - 8000:80
+
+  client-service:
+    build: 'client'
+    volumes:
+      - ./client:/home/node/app
+    ports:
+      - 8001:80
+    depends_on:
+      - server-service
