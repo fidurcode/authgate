@@ -1,0 +1,26 @@
+<div class="card">
+  <h4 class="card-header">Register</h4>
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" formControlName="username" class="form-control"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" formControlName="email" class="form-control" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" />
+      </div>
+      <div>
+        <button [disabled]="loading" class="btn btn-primary" type="submit" (click)="onSubmit()">
+          <span class="spinner-border spinner-border-sm me-1"></span>
+          Register
+        </button>
+        <a routerLink="../login" class="btn btn-link">Login</a>
+      </div>
+    </form>
+  </div>
+</div>

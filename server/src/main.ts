@@ -24,7 +24,7 @@ function getSwaggerConfig(app: INestApplication<AppModule>) {
 async function bootstrap() {
   const app: INestApplication<AppModule> = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
-
+  app.enableCors();
   getSwaggerConfig(app);
 
   await app.listen(process.env.PORT || 3000);
