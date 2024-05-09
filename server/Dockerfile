@@ -1,19 +1,13 @@
-FROM node:16
+FROM node:18
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+WORKDIR /app
 
-WORKDIR /home/node/app
-
-COPY package.json ./
+COPY package*.json ./
 
 RUN npm install
 
 COPY . .
 
-COPY --chown=node:node . .
+RUN npm run build
 
-USER node
-
-EXPOSE 3000
-
-CMD ["npm", "run", "start:dev"]
+CMD [ "npm", "run", "start:dev" ]
